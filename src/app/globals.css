@@ -1,16 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  body { @apply text-gray-900 bg-white; }
-  h1 { @apply text-3xl font-bold mb-4 text-gray-900; }
-  h2 { @apply text-2xl font-semibold mb-3 mt-8 text-gray-800; }
-  h3 { @apply text-xl font-semibold mb-2 mt-6 text-gray-700; }
-  p { @apply mb-4 leading-relaxed text-gray-700; }
-  a { @apply text-primary hover:underline; }
-  table { @apply w-full border-collapse mb-6 text-sm; }
-  th { @apply bg-primary text-white px-4 py-2 text-left; }
-  td { @apply border border-gray-200 px-4 py-2; }
-  tr:nth-child(even) td { @apply bg-gray-50; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-gray-950 text-gray-100 font-sans antialiased; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-xl 
+    hover:bg-primary-600 transition-all duration-200 shadow-lg shadow-primary/25 hover:shadow-primary/40 
+    hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-gray-700 text-gray-300 font-medium px-5 py-2.5 
+    rounded-xl hover:border-primary hover:text-primary transition-all duration-200;
+  }
+  .card {
+    @apply bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden 
+    hover:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10;
+  }
+  .badge {
+    @apply inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-white mb-4;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent;
+  }
+  .prose-finance h2 { @apply text-2xl font-bold text-white mt-10 mb-4; }
+  .prose-finance h3 { @apply text-xl font-semibold text-gray-100 mt-8 mb-3; }
+  .prose-finance p { @apply text-gray-300 leading-relaxed mb-5 text-lg; }
+  .prose-finance strong { @apply text-white font-semibold; }
+  .prose-finance a { @apply text-primary hover:text-blue-400 transition-colors underline underline-offset-2; }
+  .prose-finance ul { @apply list-none space-y-2 mb-6; }
+  .prose-finance ul li { @apply text-gray-300 flex items-start gap-2; }
+  .prose-finance ul li::before { content: "→"; @apply text-primary font-bold flex-shrink-0; }
+  .prose-finance blockquote { @apply border-l-4 border-primary pl-5 italic text-gray-400 my-6; }
+  .table-finance { @apply w-full border-collapse rounded-xl overflow-hidden; }
+  .table-finance thead { @apply bg-primary/20; }
+  .table-finance th { @apply text-left px-4 py-3 text-sm font-semibold text-primary; }
+  .table-finance td { @apply px-4 py-3 text-gray-300 border-t border-gray-800 text-sm; }
+  .table-finance tr:hover td { @apply bg-gray-800/50; }
+}
+
+@layer utilities {
+  .text-gradient { @apply bg-gradient-to-r from-blue-400 via-primary to-indigo-400 bg-clip-text text-transparent; }
+  .glow { box-shadow: 0 0 40px rgba(0, 82, 255, 0.15); }
+  .glow-gold { box-shadow: 0 0 40px rgba(245, 166, 35, 0.2); }
 }

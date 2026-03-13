@@ -12,6 +12,7 @@ export interface Article {
   category: string
   readTime: number
   content: string
+  image?: string
 }
 
 export async function getArticles(): Promise<Article[]> {
@@ -28,6 +29,7 @@ export async function getArticles(): Promise<Article[]> {
       category: data.category || 'Analyse',
       readTime: data.readTime || 5,
       content,
+      image: data.image,
     }
   }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
@@ -45,5 +47,6 @@ export async function getArticle(slug: string): Promise<Article | null> {
     category: data.category || 'Analyse',
     readTime: data.readTime || 5,
     content,
+    image: data.image,
   }
 }
